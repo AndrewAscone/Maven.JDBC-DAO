@@ -59,7 +59,7 @@ public class BandMembers implements BandMembersDAO {
         }
     }
 
-    public boolean update(BandMember dto) {
+    public boolean update(BandMember dto, int id) {
         Connection connection = ConnectionFactory.getConnection();
         try{
             PreparedStatement ps = connection.prepareStatement("UPDATE BandMembers SET " +
@@ -68,7 +68,7 @@ public class BandMembers implements BandMembersDAO {
             ps.setString(2, dto.getLastName());
             ps.setInt(3, dto.getBirthYear());
             ps.setString(4, dto.getInstrument());
-            ps.setInt(5, dto.getId());
+            ps.setInt(5, id);
             int i = ps.executeUpdate();
 
             if(i == 1){
@@ -104,7 +104,19 @@ public class BandMembers implements BandMembersDAO {
         return false;
     }
 
-    public void delete(int id) {
+    public boolean delete(int id) {
+        Connection connection = ConnectionFactory.getConnection();
+        try{
+            Statement stmt = connection.createStatement();
+            int i = stmt.executeUpdate("DELETE FROM BandMembers WHERE id=" + id);
 
+            if(i == 1){
+                System.out.println("Information at row " + id + " has been deleted!");
+                return true;
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return false;
     }
 }

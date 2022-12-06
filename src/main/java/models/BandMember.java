@@ -66,8 +66,4 @@ public class BandMember implements BandMembersDTO{
     public void setInstrument(String instrument) {
         this.instrument = instrument;
     }
-
-    public int getID() {
-        return 0;
-    }
 }

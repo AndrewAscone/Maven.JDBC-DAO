@@ -28,7 +28,7 @@ public class ConnectionFactory {
 //        if(connection != null) System.out.println("Successfully connected to database!");
 //
 //        //TODO Testing findByID method and using getters to print out details from accessed row
-//        BandMembers test = new BandMembers();
+        BandMembers test = new BandMembers();
 //        BandMember found = test.findByID(1);
 //
 //        System.out.println(found.getFirstName() + " " + found.getLastName() + " was born in " +
@@ -43,7 +43,17 @@ public class ConnectionFactory {
 //        test.create(new BandMember("Brent", "Mydland", 1952, "keyboards"));
 //        BandMember createFound = test.findByID(7);
 //        System.out.println(createFound.getFirstName() + " " + createFound.getLastName());
-
+//
+//        //TODO Testing update method passing in info to update a row chosen by id number
+//        test.update(new BandMember("Keith", "Godchaux", 1948, "keyboards"), 7);
+//        BandMember updateFound = test.findByID(7);
+//        System.out.println(updateFound.getFirstName() + " " + updateFound.getLastName());
+//
+//        //TODO Testing delete method passing in an id to determine which row to remove
+//        test.delete(9);
+//        for(BandMember i : test.findAll()){
+//            System.out.println(i.getFirstName() + " " + i.getLastName());
+//        }
 
     }
 }
