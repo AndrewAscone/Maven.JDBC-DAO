@@ -7,7 +7,7 @@ import java.util.List;
 public interface BandMembersDAO {
     BandMember findByID(int id);
     List<BandMember> findAll();
-    BandMember update(BandMember dto);
-    BandMember create(BandMember dto);
+    boolean update(BandMember dto);
+    boolean create(BandMember dto);
     void delete(int id);
 }
